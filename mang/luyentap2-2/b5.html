@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="chuoi1" type="text">
+<input id="chuoi2" type="text">
+<button onclick="ab()">kiểm tra</button>
+<script>
+    let a = document.getElementById("chuoi1");
+    let b = document.getElementById("chuoi2");
+
+    function ab() {
+        let c = a.value;
+        let arr1 = c.split('');
+        let d = b.value;
+        let arr2 = d.split('');
+        if (arr1.length == arr2.length) {
+            let count=0;
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr1[i] === arr2[i]) {
+                    count+=1;
+                }
+            }if(count===arr1.length){
+                document.write("giống");
+            }else {
+                document.write("không giống");
+            }
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
