@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="ip" type="number" oninput="converts()">
+<select id="convert">
+  <option value="0">Feet</option>
+  <option value="1">Meters</option>
+</select>
+<p>Kết quả: <span id="result"></span></p>
+<script>
+  function converts() {
+    let ip = document.getElementById("ip").value;
+    let c = document.getElementById("convert").value;
+    let result = document.getElementById("result");
+
+    if (c === "0") {
+      result.innerText = feetToMeters(ip) + " meters";
+    }
+    else {
+      result.innerText = meterToFeet(ip) + " feet";
+    }
+  }
+
+  function feetToMeters(ip) {
+    let r = 3.279 * ip;
+    return r;
+  }
+
+  function meterToFeet(ip) {
+    let r = 0.305 * ip;
+    return r;
+  }
+</script>
+
+</body>
+</html>

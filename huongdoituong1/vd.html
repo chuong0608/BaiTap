@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><canvas id="myCanvas" style="border: 1px solid red" width="600" height="600" ></canvas>
+<script>
+    class HCN{
+        cd;
+        cr;
+        mau;
+        x;
+        y;
+        constructor(s1,s2,s3,s4,s5) {
+            this.cd=s1;
+            this.cr=s2;
+            this.mau=s3;
+            this.x=s4;
+            this.y=s5;
+        }
+        TinhCV(){
+            return (this.cd+this.cr)*2;
+        }
+        TinhDT(){
+            return (this.cd*this.cr);
+        }
+        ve(){
+            let stx=document.getElementById("myCanvas").getContext("2d");
+            stx.beginPath();
+            stx.fillRect(this.x,this.y,this.cd,this.cr);
+            stx.closePath();
+
+        }
+    }
+    let h1=new HCN(100,100,"Green",100,100);
+    h1.ve();
+    document.write(h1.TinhCV());
+    document.write(h1.TinhDT());
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+    <p>
+        <label>Độ F</label>
+<input id="inputDoF" placeholder="Nhập độ F" oninput="doinhietdo(this.value)">
+    </p>
+<p>Độ C:<span id="outputDoC"></span></p>
+</center>
+<script>
+    function doinhietdo(valNum) {
+        valNum=parseFloat(valNum);
+        document.getElementById("outputDoC").innerHTML=(valNum-32)/1.8;
+
+    }
+</script>
+</body>
+</html>

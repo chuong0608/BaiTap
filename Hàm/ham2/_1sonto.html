@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhapso">
+<button onclick="check()">Kiểm Tra</button>
+<h1 id="rs"></h1>
+<script>
+    let txt = document.getElementById("nhapso");
+    let rs = document.getElementById("rs");
+
+    function check() {
+        let num = +txt.value;
+        let kq = kiemTraSoNguyenTo(num);
+        rs.innerHTML = kq;
+    }
+
+    function kiemTraSoNguyenTo(ip) {
+        let text = "Là số nguyên tố"
+        for (let i = 2; i < (ip ** (1 / 2)); i++) {
+            console.log(1)
+            if (ip % i === 0) {
+                text = "Không phải số nguyên tố"
+                break;
+            }
+        }
+        return text;
+    }
+
+</script>
+
+</body>
+</html>

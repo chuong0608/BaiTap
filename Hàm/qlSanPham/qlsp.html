@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px;
+            border-collapse: collapse;
+            width: 600px;
+            text-align: center;
+
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {background-color:#f5f5f5;}
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        button{
+            background: #32ff19;
+        }
+        th{
+            background: bisque;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="nameSp">
+<button onclick="add()">ADD</button>
+<div id="sl">
+
+</div>
+<div id="list">
+
+</div>
+<div id="edit"></div>
+<table id="displayArea" border="1">
+
+</table>
+
+<script>
+    let slView = document.getElementById('sl');
+    let inpName = document.getElementById("nameSp");
+    let productList = ["Ip13", "Ip12", "s11", "Nokia"];
+    hienthi();
+
+
+    function hienthi() {
+        let str = " <tr>" +
+            "<th>ProductName</th>" +
+            "<th colspan='2'> " + productList.length + "</th>";
+        for (let i = 0; i < productList.length; i++) {
+            str += "<tr><td>" + productList[i] + "</td>" +
+                "<td><button onclick='formEdit(" + i + ")'>Edit</button></td>" +
+                "<td><button onclick = 'Xoa(" + i + ")' > Delete </button></td >"+"</tr>";
+        }
+        document.getElementById("displayArea").innerHTML = str;
+    }
+
+    function add() {
+        let tenSp = inpName.value;
+        productList.push(tenSp);
+        console.log(productList);
+        hienthi();
+    }
+    function Xoa(index) {
+        productList.splice(index, 1);
+        hienthi();
+    }
+
+    function formEdit(index) {
+        let str = "";
+        str = "<input type='text' id='editProduct' value='" + productList[index] + "'> " +
+            "<button onclick='saveEdit(" + index + ")'>Save</button>";
+        document.getElementById("edit").innerHTML = str;
+        hienthi();
+    }
+
+    function saveEdit(index) {
+        productList[index] = document.getElementById("editProduct").value;
+        hienthi();
+    }
+
+</script>
+</body>
+</html>
